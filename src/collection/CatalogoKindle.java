@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 
-public class CatalogoKindle{
+public class CatalogoKindle implements Agregado{
     private HashMap<String, List<Libro>> catalogo;
 
     public CatalogoKindle(){
@@ -25,5 +25,10 @@ public class CatalogoKindle{
 
     public HashMap<String, List<Libro>> getCatalogo(){
         return catalogo;
+    }
+
+    @Override
+    public Iterator createIterator(){
+        return new HashMapIterator(catalogo);
     }
 }
